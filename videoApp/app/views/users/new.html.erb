@@ -1,0 +1,31 @@
+<h1>Users#new</h1>
+<%=form_for @user, role: "form" do |f| %>
+<% unless @user.errors.count == 0   %>
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@user.errors.count, "error") %>.
+        
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+      <% end %>
+          </ul>
+        </div>
+    <% end %>
+	<div class="form-group">
+		<%=f.label :name%>
+		<%=f.text_field :name %>
+	</div>
+	<div class="form-group">
+		<%=f.label :email%>
+		<%=f.text_field :email%>
+	</div>
+	<div class="form-group">
+		<%=f.label :password%>
+		<%=f.text_field :password%>
+	</div>
+	<div class="form-group">
+		<%=f.label "Password Confirmation" %>
+		<%=f.text_field :password_confirmation %>
+	</div>
+	<%=f.submit%>
+<%end%>
