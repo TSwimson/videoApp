@@ -12,6 +12,23 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def debug_printer
+    puts (("#"*40)+"\n")*5
+  end
+
+  def not_signed_in_owner? video
+    return false unless session[:owned_videos] 
+    return false unless session[:owned_videos].include?(video.session_id)
+    return false unless video.created_at + 24.hours > DateTime.now
+    return true
+  end
+
+  def owner? id
+    return false unless signed_in?
+    return false unless current_user.id == id
+    return true
+
+  end
   # Authorization: signed_in_user is called in a before_filter
   # callback in each controller, see books/ingredients/recipe controllers
   # Ensures access to create/edit functions on if signed in.

@@ -19,8 +19,8 @@
     <% @videos.each do |video| %>
       <tr>
         <td><%= video.name %></td>
-        <td><%= link_to "Download video", video.attachment_url %></td>
-        <td><%= button_to "Delete",  video, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{video.name}?" %></td>
+        <td><%= link_to "Video Page", video_path(video.id) %></td>
+        <!-- <td><%#= button_to "Delete",  video, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{video.name}?" %></td> -->
       </tr>
     <% end %>
   </tbody>

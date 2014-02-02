@@ -1,5 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
-	
+	has_many :videos
 	before_save { email.downcase! }
 	has_secure_password
 	before_save :create_remember_token

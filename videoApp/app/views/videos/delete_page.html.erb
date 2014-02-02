@@ -1,0 +1,3 @@
+<p>Delete <a href="<%=video_path(@video.id)%>"><%=@video.name%></a>?.<p>
+
+<%= button_to "Delete", delete_video_with_key_path(@video.id, params[:delete_key]), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you want to delete #{@video.name}?" %>
