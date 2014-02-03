@@ -12,6 +12,10 @@ class VideosController < ApplicationController
 
   def new_new
     @video = Video.new
+    respond_to do |format|
+      format.html  
+      format.json { render json: @video }
+    end
   end
   #create a video
   #use a session and a delete key to allow the user to edit the video if they are not signed in
@@ -38,7 +42,15 @@ class VideosController < ApplicationController
     else                                                              #error saving the video take them back to try again TODO show errors
       render "new"
     end
-
+    respond_to do |format|
+      if @video.save
+        debug_print
+        puts @video.to_jq_upload .to_json
+       format.json { render :json => [ @video.to_jq_upload ].to_json }
+      else
+        format.json { render :json => [ @video.to_jq_upload.merge({ :error => "custom_failure" }) ].to_json }
+      end
+    end
   end
 
   #display the video

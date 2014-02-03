@@ -28,13 +28,14 @@ class Video < ActiveRecord::Base
 		self.extension = self.url.split(".").last
 	end
 	def to_jq_upload
-		{
+	{ "files" => [	{
 			"name" => read_attribute(:attachment),
 			"size" => attachment.size,
 			"url" => attachment.url,
-			#"thumbnail_url" => attachment.thumb.url,
-			#"delete_url" => "todothis", #picture_path(:id => id),
-			#{}"delete_type" => "DELETE"
-		}
+			"thumbnail_url" => "",
+			"delete_url" => "todothis", #picture_path(:id => id),
+			"delete_type" => "DELETE"
+		}]
+	}
 	end
 end

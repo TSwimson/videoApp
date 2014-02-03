@@ -15,9 +15,9 @@ module SessionsHelper
     session[:owned_videos].each do |session_id|                                                                   # if there are videos in owvned_videos the loop through them
 
       if video = Video.find_by_session_id(session_id) 
-        current_user.videos << video if (video.created_at + 24.hours > DateTime.now) #add it if it was created in the last 24 hours
+        current_user.videos << video if (video.created_at + 24.hours > DateTime.now)       #add it if it was created in the last 24 hours
 
-        video.delete_key = nil                                                                                                       #disable non logged in edit/removal
+        video.delete_key = nil                                                                                                   #disable non logged in edit/removal
         video.session_id = nil
         video.save
       end
