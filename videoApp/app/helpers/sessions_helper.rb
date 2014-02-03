@@ -8,17 +8,18 @@ module SessionsHelper
     current_user = user
     add_session_owned_videos
   end
+
   #user has logged in then add the videos saved in the session to their account
   def add_session_owned_videos
-    debug_print
-    return unless session[:owned_videos] #stop if the are no videos
-    session[:owned_videos].each do |session_id| #get each video session id
-      if video = Video.find_by_session_id(session_id) #get the video
+    return unless session[:owned_videos] 
+    session[:owned_videos].each do |session_id|                                                                   # if there are videos in owvned_videos the loop through them
+
+      if video = Video.find_by_session_id(session_id) 
         current_user.videos << video if (video.created_at + 24.hours > DateTime.now) #add it if it was created in the last 24 hours
-        video.delete_key = nil #disable non logged in access
+
+        video.delete_key = nil                                                                                                       #disable non logged in edit/removal
         video.session_id = nil
         video.save
-        current_user.save
       end
     end
   end
@@ -26,10 +27,16 @@ module SessionsHelper
   def signed_in?
     !current_user.nil?
   end
-
+  
+  #for debugging (REMOVE)
   def debug_print
     puts (("#"*40)+"\n")*5
   end
+
+  #check if the user owns the video via session key
+  #return false if there is no session key
+  #                     if  the session array doesn't contain the video being checked
+  #                     if the video was not created less than 24 hours ago
 
   def not_signed_in_owner? video
     return false unless session[:owned_videos] 
@@ -38,6 +45,9 @@ module SessionsHelper
     return true
   end
 
+#check to see if the video belongs to the users account
+#return false if the user is not signed in
+#                      if the current user's id doesnt match the id being checked
   def owner? id
     return false unless signed_in?
     return false unless current_user.id == id

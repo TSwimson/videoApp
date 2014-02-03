@@ -11,6 +11,8 @@ VideoApp::Application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: :show_user
   get '/videos/:id/d/:delete_key', to: 'videos#delete_page', as: :delete_video_page
+
+  get '/new', to: 'videos#new_new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
