@@ -5,7 +5,7 @@ VideoApp::Application.routes.draw do
   post '/users', to: 'users#create'
   delete '/sessions', to: 'sessions#destroy', as: :signout
 
-  resources :videos, only: [:index, :new, :create, :destroy, :show]
+  resources :videos, only: [:index, :new, :create, :destroy, :show, :update]
 
   delete '/videos/:id/:delete_key', to: "videos#destroy", as: :delete_video_with_key
 

@@ -6,13 +6,28 @@ module SessionsHelper
     # This is an is an assignment, which we must define - see below
     # note that next line is a call to setter 'def current_user=(user)' below
     current_user = user
+    add_session_owned_videos
+  end
+  #user has logged in then add the videos saved in the session to their account
+  def add_session_owned_videos
+    debug_print
+    return unless session[:owned_videos] #stop if the are no videos
+    session[:owned_videos].each do |session_id| #get each video session id
+      if video = Video.find_by_session_id(session_id) #get the video
+        current_user.videos << video if (video.created_at + 24.hours > DateTime.now) #add it if it was created in the last 24 hours
+        video.delete_key = nil #disable non logged in access
+        video.session_id = nil
+        video.save
+        current_user.save
+      end
+    end
   end
 
   def signed_in?
     !current_user.nil?
   end
 
-  def debug_printer
+  def debug_print
     puts (("#"*40)+"\n")*5
   end
 

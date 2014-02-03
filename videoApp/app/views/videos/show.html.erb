@@ -1,10 +1,19 @@
-<h1>Video Title: <%=@video.name%> </h1>
+<%if @owner_type == "owner" || @owner_type == "not signed in"%>
+<h1><%=form_for @video, role: "form" do |f|%>
+	<%=f.text_field :name%>
+	<%=f.submit "Save Title"%>
+	<%end%></h1>
+<%elsif @owner_type == "not owner"%>
+<h1><%=@video.name%></h1>
+<%end%>
+
 <%= videojs_rails sources: { @video.extension => @video.url }, width:"400", height:"300"%>
-<%if owner? @video.user_id%>
+
+<%if @owner_type == "owner"%>
 <p>This video is saved to your account<p>
 <%= button_to "Delete",  @video, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@video.name}?" %>
-<%elsif not_signed_in_owner?(@video)%>
+<%elsif @owner_type == "not signed in"%>
 <p>Login to save this video to your account</p>
-<p>Or save this link if you might want to delete it.<br/> This link will not be shown again. 
+<p>Or save this link if you might want to delete it.<br/>This link will not be shown again. 
 	<a href="<%=delete_video_page_path(@video.id, @video.delete_key)%>"><%="localhost:3000/" + delete_video_page_path(@video.id, @video.delete_key)%></a><p>
 <%end%>
