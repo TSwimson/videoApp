@@ -15,7 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require video
-//= require jquery.iframe-transport
-//= require jquery.fileupload
-//= require jquery.fileupload-ui
-//= require jquery.fileupload-process
+
+//= require jquery-fileupload

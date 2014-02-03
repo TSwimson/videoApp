@@ -38,14 +38,12 @@ class VideosController < ApplicationController
       end
 
       @video.save 
-      redirect_to videos_path, notice: "The video #{@video.name} has been uploaded."
+      #redirect_to videos_path, notice: "The video #{@video.name} has been uploaded."
     else                                                              #error saving the video take them back to try again TODO show errors
-      render "new"
+      #render "new"
     end
     respond_to do |format|
       if @video.save
-        debug_print
-        puts @video.to_jq_upload .to_json
        format.json { render :json => [ @video.to_jq_upload ].to_json }
       else
         format.json { render :json => [ @video.to_jq_upload.merge({ :error => "custom_failure" }) ].to_json }
@@ -113,6 +111,9 @@ class VideosController < ApplicationController
   private
 
   def video_attachment
+    debug_print
+    puts "params "
+    puts params
     params.require(:video).permit(:attachment)
   end
 
