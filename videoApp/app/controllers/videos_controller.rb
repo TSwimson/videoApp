@@ -3,6 +3,11 @@ class VideosController < ApplicationController
   #list all videos title and page link
   def index
     @videos = Video.all
+    @video = Video.new
+    respond_to do |format|
+      format.html  
+      format.json { render json: @video }
+    end
   end
 
   #new video page
@@ -38,13 +43,15 @@ class VideosController < ApplicationController
 
       @video.save 
       respond_to do |format|
-      format.html {  
-          render :json => [@video.to_jq_upload].to_json, 
+      format.html { 
+          render :files => [@video.to_jq_upload].to_json, 
           :content_type => 'text/html',
           :layout => false
         }
         format.json { 
-          render :files => [@video.to_jq_upload].to_json           
+          debug_print
+          puts "response: " + {"files" => [@video.to_jq_upload].to_json}.to_s
+          render json:  {"files" => [@video.to_jq_upload]}.to_json           
         }
       end
       #redirect_to videos_path, notice: "The video #{@video.name} has been uploaded."

@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require_tree .
- *= require video-js
+ * require video-js
  *= require jquery.fileupload-ui
 */
 

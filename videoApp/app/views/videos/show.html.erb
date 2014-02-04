@@ -7,7 +7,13 @@
 <h1><%=@video.name%></h1>
 <%end%>
 
-<%= videojs_rails sources: { @video.extension => @video.url }, width:"400", height:"300"%>
+<%#= videojs_rails sources: { @video.extension => @video.url }, width:"400", height:"300"%>
+
+
+<video preload controls id="videoid" class="video-js vjs-default-skin"
+  controls preload="auto" width="620" height="480">
+ <source src="<%=@video.url%>" type='video/mp4' />
+</video>
 
 <%if @owner_type == "owner"%>
 <p>This video is saved to your account<p>
