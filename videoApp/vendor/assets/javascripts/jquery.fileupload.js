@@ -110,7 +110,7 @@
             // origin server, for cross-domain iframe transport uploads:
             redirect: undefined,
             // The parameter name for the redirect url, sent as part of the form
-            // data and set to 'redirect' if this option is empty:
+            // data and set to 'redirect' if this option is :
             redirectParamName: undefined,
             // Set the following option to the location of a postMessage window,
             // to enable postMessage transport uploads:
@@ -145,10 +145,10 @@
             messages: {
                 uploadedBytes: 'Uploaded bytes exceed file size'
             },
-
             // Translation function, gets the message key to be translated
             // and an object with context specific data as arguments:
             i18n: function (message, context) {
+
                 message = this.messages[message] || message.toString();
                 if (context) {
                     $.each(context, function (key, value) {

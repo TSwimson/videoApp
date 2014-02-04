@@ -114,14 +114,17 @@
 
 <script type="text/javascript" charset="utf-8">
   $(function () {
+    
       // Initialize the jQuery File Upload widget:
       $('#fileupload').fileupload();
       // 
       // Load existing files:
+
       $.getJSON($('#fileupload').prop('action'), function (files) {
         var fu = $('#fileupload').data('blueimpFileupload'), 
           template;
         fu._adjustMaxNumberOfFiles(-files.length);
+        console.log("poopy");
         console.log(files);
         template = fu._renderDownload(files)
           .appendTo($('#fileupload .files'));
