@@ -21,7 +21,7 @@ class VideosController < ApplicationController
   #use a session and a delete key to allow the user to edit the video if they are not signed in
   #attach the video to their user account if they are signed in
   def create
-    @video = Video.new(video_attachment)                                       #get the attachemnt and create a video object with it
+    @video = Video.new(video_attachment)                                   #get the attachemnt and create a video object with it
 
     if @video.save                                                                                #if it saves then get the urll
       @video.create_url                                               
@@ -29,11 +29,11 @@ class VideosController < ApplicationController
       if signed_in?                                                                                 #if the user is signed in add the video to their account
         current_user.videos << @video 
 
-      else                                                                                              #if they arent't uses sessions and a delete key
+      else                                                                                                #if they arent't uses sessions and a delete key
         @video.session_id = SecureRandom.urlsafe_base64(15) 
         @video.delete_key = SecureRandom.urlsafe_base64(30) 
         session[:owned_videos] ||= []                                                    #if the current session doesn't have any owned_videos then create the array
-        session[:owned_videos] << @video.session_id                         #add videos session id to array
+        session[:owned_videos] << @video.session_id                      #add videos session id to array
       end
 
       @video.save 
@@ -43,8 +43,8 @@ class VideosController < ApplicationController
           :content_type => 'text/html',
           :layout => false
         }
-        format.json {  
-          render :json => [@video.to_jq_upload].to_json           
+        format.json { 
+          render :files => [@video.to_jq_upload].to_json           
         }
       end
       #redirect_to videos_path, notice: "The video #{@video.name} has been uploaded."
