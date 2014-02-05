@@ -3,44 +3,37 @@
   <%= flash[:notice] %>
   </div>
 <% end %>
-<br />
-<%#= render 'new_upload' %>
-<%= s3_uploader_form callback_url: '/videos',
-           id: "s3_uploader",
-           callback_param: "document[file_url]",
-           expiration: 2.hours.from_now.utc.iso8601,
-           callback_method: "POST",
-           max_file_size: 300.megabytes do %>
-
-  <%= file_field_tag :file, multiple: false %>
-<% end %>
-
-<div id="uploads_container"></div>
-<script id="template-upload" type="text/x-tmpl">
-  <div id="upload_{%=o.unique_id%}" class="upload">
-    <h5>{%=o.name%}</h5>
-    <div class="progress progress-striped active">
-      <div class="bar" style="width: 0%"></div>
-    </div>
+<div class="container">
+<div class='row'>
+  <div class = "col-xs-1"></div>
+  <div class="upload-div col-xs-10">
+    <div class"outside">
+    <div class="fileupload center-block btn btn-primary">
+    <%= s3_uploader_form callback_url: '/videos',
+             id: "s3_uploader",
+             callback_param: "document[file_url]",
+             expiration: 2.hours.from_now.utc.iso8601,
+             callback_method: "POST",
+             max_file_size: 300.megabytes do %>
+              <div class="choose-file-text">Choose File</div>
+    <%= file_field_tag :file, multiple: false, class: "file-chooser-button" %>
+  <% end %>
   </div>
-</script>
-<br />
-<br />
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Link</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
+  <div id="uploads_container"></div>
+  </div>
+  </div>
+</div>
     <% @videos.each do |video| %>
-      <tr>
-        <td><%= video.name %></td>
-        <td><%= link_to "Video Page", video_path(video.id) %></td>
-        <!-- <td><%#= button_to "Delete",  video, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{video.name}?" %></td> -->
-      </tr>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="video-div col-xs-9">
+        <%= video.name %>
+        <%= link_to "Video Page", video_path(video.id) %>
+      </div></div>
     <% end %>
-  </tbody>
-</table>
+</div>
+<script id="template-upload" type="text/x-tmpl">
+    <div class="progress progress-striped">
+      <div class="bar progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    </div>
+</script>

@@ -33,7 +33,4 @@ $(function() {
     window.location = data["url"];
   });
 
-  // $('#s3_uploader').bind('s3_upload_complete', function(e, content) {
-  //  window.location.replace("/view");
-  // });
 });
