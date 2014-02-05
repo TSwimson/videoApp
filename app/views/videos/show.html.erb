@@ -21,5 +21,5 @@
 <%elsif @owner_type == "not signed in"%>
 <p>Login to save this video to your account</p>
 <p>Or save this link if you might want to delete it.<br/>This link will not be shown again. 
-	<a href="<%=delete_video_page_path(@video.id, @video.delete_key)%>"><%="localhost:3000/" + delete_video_page_path(@video.id, @video.delete_key)%></a><p>
+	<a href="<%=delete_video_page_path(@video.id, @video.delete_key)%>"><%="http://easyvid.herokuapp.com" + delete_video_page_path(@video.id, @video.delete_key)%></a><p>
 <%end%>
