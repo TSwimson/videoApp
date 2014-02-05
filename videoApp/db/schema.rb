@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140202205439) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -35,6 +38,6 @@ ActiveRecord::Schema.define(version: 20140202205439) do
     t.string   "delete_key"
   end
 
-  add_index "videos", ["user_id"], name: "index_videos_on_user_id"
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
 end
