@@ -4,10 +4,6 @@ class VideosController < ApplicationController
   def index
     @videos = Video.all
     @video = Video.new
-    respond_to do |format|
-      format.html  
-      format.json { render json: @video }
-    end
   end
 
   #new video page
@@ -17,19 +13,15 @@ class VideosController < ApplicationController
 
   def new_new
     @video = Video.new
-    respond_to do |format|
-      format.html  
-      format.json { render json: @video }
-    end
   end
   #create a video
   #use a session and a delete key to allow the user to edit the video if they are not signed in
   #attach the video to their user account if they are signed in
   def create
-    @video = Video.new(video_attachment)                                   #get the attachemnt and create a video object with it
+    @video = Video.new()                                   #get the attachemnt and create a video object with it
 
     if @video.save                                                                                #if it saves then get the urll
-      @video.create_url                                               
+      @video.create_url  params[:filepath]                                              
 
       if signed_in?                                                                                 #if the user is signed in add the video to their account
         current_user.videos << @video 
@@ -42,22 +34,10 @@ class VideosController < ApplicationController
       end
 
       @video.save 
-      respond_to do |format|
-      format.html { 
-          render :files => [@video.to_jq_upload].to_json, 
-          :content_type => 'text/html',
-          :layout => false
-        }
-        format.json { 
-          debug_print
-          puts "response: " + {"files" => [@video.to_jq_upload].to_json}.to_s
-          render json:  {"files" => [@video.to_jq_upload]}.to_json           
-        }
-      end
-      #redirect_to videos_path, notice: "The video #{@video.name} has been uploaded."
+      render json:  {url: "/videos/#{@video.id}"}
     else                                                              #error saving the video take them back to try again TODO show errors
-      #render "new"
-      render :json => [{:error => "custom_failure"}], :status => 304
+      redirect_to "/"
+      
     end
   end
 
@@ -121,10 +101,7 @@ class VideosController < ApplicationController
   private
 
   def video_attachment
-    debug_print
-    puts "params "
-    puts params
-    params.require(:video).permit(:attachment)
+    params.permit(:filepath)
   end
 
   def video_title

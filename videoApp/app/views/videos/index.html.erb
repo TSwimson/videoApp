@@ -4,7 +4,26 @@
   </div>
 <% end %>
 <br />
-<%= render 'new_upload' %>
+<%#= render 'new_upload' %>
+<%= s3_uploader_form callback_url: '/videos',
+           id: "s3_uploader",
+           callback_param: "document[file_url]",
+           expiration: 2.hours.from_now.utc.iso8601,
+           callback_method: "POST",
+           max_file_size: 300.megabytes do %>
+
+  <%= file_field_tag :file, multiple: false %>
+<% end %>
+
+<div id="uploads_container"></div>
+<script id="template-upload" type="text/x-tmpl">
+  <div id="upload_{%=o.unique_id%}" class="upload">
+    <h5>{%=o.name%}</h5>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: 0%"></div>
+    </div>
+  </div>
+</script>
 <br />
 <br />
 <table class="table table-bordered table-striped">
