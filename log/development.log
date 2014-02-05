@@ -68273,3 +68273,46 @@ Processing by VideosController#index as HTML
   [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'JmogupCJYYp2K3pubANTPw' LIMIT 1[0m
   Rendered layouts/_header.html.erb (23.3ms)
 Completed 200 OK in 173ms (Views: 145.2ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/videos" for 127.0.0.1 at 2014-02-04 17:20:29 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (0.7ms)[0m  SELECT "videos".* FROM "videos"
+  Rendered videos/index.html.erb within layouts/application (6.1ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'JmogupCJYYp2K3pubANTPw' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (22.8ms)
+Completed 200 OK in 214ms (Views: 185.6ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/videos" for 127.0.0.1 at 2014-02-04 17:20:41 -0800
+Processing by VideosController#create as */*
+  Parameters: {"url"=>"https://videosok.s3.amazonaws.com/uploads%2F1391563236071-tq0akqp39nj6ecdi-ef47db7a9afa9f050bb2992886f8f4c0%2FUntitled.mp4", "filepath"=>"/uploads%2F1391563236071-tq0akqp39nj6ecdi-ef47db7a9afa9f050bb2992886f8f4c0%2FUntitled.mp4", "filename"=>"Untitled.mp4", "filesize"=>"3646244", "filetype"=>"video/mp4", "unique_id"=>"tq0akqp39nj6ecdi", "document"=>{"file_url"=>"https://videosok.s3.amazonaws.com/uploads%2F1391563236071-tq0akqp39nj6ecdi-ef47db7a9afa9f050bb2992886f8f4c0%2FUntitled.mp4"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "videos" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 01:20:41 UTC +00:00], ["updated_at", Wed, 05 Feb 2014 01:20:41 UTC +00:00]]
+  [1m[35m (7.0ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'JmogupCJYYp2K3pubANTPw' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "videos" SET "url" = $1, "extension" = $2, "session_id" = $3, "delete_key" = $4, "updated_at" = $5 WHERE "videos"."id" = 2[0m  [["url", "http://d1f5gutkqysysk.cloudfront.net/uploads%2F1391563236071-tq0akqp39nj6ecdi-ef47db7a9afa9f050bb2992886f8f4c0%2FUntitled.mp4"], ["extension", "mp4"], ["session_id", "9h0bNBQKyycOTQH4PnME"], ["delete_key", "eCtB_89_eguykGVAvTnA-McupMuBzxNGh7rYmY2l"], ["updated_at", Wed, 05 Feb 2014 01:20:41 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/videos/2" for 127.0.0.1 at 2014-02-04 17:20:41 -0800
+Processing by VideosController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mVideo Load (0.9ms)[0m  [1mSELECT "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'JmogupCJYYp2K3pubANTPw' LIMIT 1
+  Rendered videos/show.html.erb within layouts/application (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'JmogupCJYYp2K3pubANTPw' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 20ms (Views: 14.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-04 17:20:48 -0800
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (0.9ms)[0m  SELECT "videos".* FROM "videos"
+  Rendered videos/index.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'JmogupCJYYp2K3pubANTPw' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 1.4ms)
