@@ -46,6 +46,7 @@ group :development do
 end
 
 group :produduction do 
+  gem 'pry-remote'
   gem 'rails_12factor'
 end
 # Use ActiveModel has_secure_password
