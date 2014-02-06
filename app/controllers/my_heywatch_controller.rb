@@ -6,6 +6,7 @@ skip_before_filter :verify_authenticity_token
     #binding.pry
 
      puts "request body"
+     binding.pry
      puts request.body
      render json: {}
      #encode params[:id], params['video_id']
