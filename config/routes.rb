@@ -5,14 +5,18 @@ VideoApp::Application.routes.draw do
   post '/users', to: 'users#create'
   delete '/sessions', to: 'sessions#destroy', as: :signout
 
-  resources :videos, only: [:index, :new, :create, :destroy, :show, :update]
+  resources :videos, only: [:index, :create, :destroy, :show, :update]
 
   delete '/videos/:id/:delete_key', to: "videos#destroy", as: :delete_video_with_key
 
   get '/users/:id', to: 'users#show', as: :show_user
+
   get '/videos/:id/d/:delete_key', to: 'videos#delete_page', as: :delete_video_page
 
   get '/new', to: 'videos#new_new'
+
+  post '/hw/uploaded/:id', to: 'my_heywatch#upload_complete'
+  post '/hw/encoded/:id', to: 'my_heywatch#encode_complete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

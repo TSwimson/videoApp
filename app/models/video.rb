@@ -19,6 +19,11 @@ class Video < ActiveRecord::Base
 	belongs_to :user
 	#mount_uploader :attachment, VideoUploader
 
+      before_validation(on: :create) do
+        self.views = 0
+        self.processed = "processed"
+      end
+
 	def create_url filepath
 		self.url = "http://d1f5gutkqysysk.cloudfront.net#{filepath}"
 		self.get_extension

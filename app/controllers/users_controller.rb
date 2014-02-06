@@ -4,11 +4,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
-  #Maybe allow viewing a list of a users videos
-  # def show
-  #   @user = User.find(params[:id])
-  # end
 
   #create a user 
   #if succesfull redirect to root

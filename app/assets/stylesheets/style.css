@@ -1,5 +1,7 @@
 body {
-	padding-top: 100px;
+	padding-top: 70px;
+      background-color: #f2f2f2;
+      font-family: 'Lato', sans-serif;
 }
 .rightside {
 	padding-right: 15px;
@@ -11,7 +13,7 @@ body {
   width:100%;
   height:auto;
   margin:10px auto 0px auto;
-  border:5px solid #000000;
+  border:2px solid #606060;
   padding:20px;
 }
 
@@ -58,7 +60,9 @@ text-decoration:none !important;
 .fileupload:active{
 box-shadow:inset 0 3px 3px #174F44;
 }
-
+.buffer{
+  padding:10px;
+}
 .fileupload input.file-chooser-button {
   position: absolute;
   width:100%;
@@ -71,24 +75,79 @@ box-shadow:inset 0 3px 3px #174F44;
   opacity: 0;
   filter: alpha(opacity=0);
 }
-
-
-.show-video-page{}
+.links-area {
+  margin-top:65px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.delete-button {
+  position: relative;
+  display: block;
+  margin: 1px auto 10px auto;
+}
+.avatar {
+  margin: 0 10px;
+}
+@media (max-width:991px){
+  .inline-block-sm {
+    display:inline-block;
+  }
+}
+@media (max-width:370) {
+  .custom-nav {
+  display: inline !important;
+  }
+  .in-im {
+    display:inline !important;
+  }
+}
+ .in-im {
+    display:inline !important;
+  }
+.custom-nav {
+  display: inline !important;
+}
+.link-text {
+  width:80%;
+}
+.border {
+  position:relative;
+  display:block;
+    border-radius:4px;
+    background:#fff;
+    border:2px solid #ccc;
+    margin:2px auto;
+}
+.form-input{
+  width:200px;
+  margin-right: 1px;
+}
+.title-container {
+  display:block;
+}
 .edit-title-form {
-  display: inline-flex;
+  position: relative;
+  display: block;
+  width:100%;
+}
+.inline{
+  display:inline !important;
 }
 .title-div {
-  display: inline-flex;
+  position:   relative;
+  display: inline-block;
 }
 .cancel-edit-button {
   height:30px;
   width:30px;
-  margin: 0 auto;
+  margin-bottom: 5px;
 }
 .edit-title-button {
   height:30px;
   width:30px;
   margin: 0 auto;
+  display: inline-block;
+
 }
 
 

@@ -1,26 +1,26 @@
-<div class="navbar-inverse navbar-fixed-top">
+<div class="navbar-inverse navbar-fixed-top custom-nav">
       <div class="navbar-header pull-left">
         <a class="navbar-brand hidden-xs" href="/">Video</a>
       </div>
-      <div class="navbar-header pull-right rightside">
+      <div class="navbar-header pull-right rightside in-em">
             <% if signed_in? %>
-            <p class="navbar-text navbar-right signed-in">Welcome, <%=current_user.name%>&nbsp;&nbsp;&nbsp;&nbsp;
-              <%=image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(current_user.email)}", :alt => 'Avatar', :class => 'avatar',  wdith: "50px", height: "50px")%>
+            <p class="navbar-text navbar-right signed-in">Welcome, <%=current_user.name%>
+              <%=image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{Digest::MD5::hexdigest(current_user.email)}", :alt => 'Avatar', :class => 'avatar',  wdith: "40px", height: "40px", class:"avatar")%>
                 <%= link_to "Sign out", signout_path, method: "delete", class: 'sign-link' %>
               </p>
             <% else %>
-            <ul class="nav navbar-nav nav-style-list"><li>
+            <div class="nav navbar-nav">
+              <div class="in-im">
               <%= link_to "Sign up", signup_path, class: 'sign-link'%>
-            </li><li>
+            </div><div class="in-im">
               <%= form_for(:session, url: sessions_path, class: 'navbar-form', role: 'login') do |f| %>
-                  <%= f.text_field :email, placeholder: "Email"%>
+                  <%= f.text_field :email, placeholder: "Email" %>
                   <%= f.password_field :password, placeholder: "Password" %>
-                  <%= f.submit "Sign in", class: "btn btn-default navbar-btn" %>
-                <% end %></li>
-              </ul>
+                  <button type="submit"><i class="fa fa-sign-in"></i></input>
+                <% end %></div>
+              </div>
             <% end %>
         </div>
-        
 </div>
 <% if flash[:error]  %>
         <div class="alert alert-danger">

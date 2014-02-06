@@ -2,31 +2,24 @@ class VideosController < ApplicationController
 
   #list all videos title and page link
   def index
-    @videos = Video.all
+    @videos = current_user.videos if signed_in?
+    @videos ||= []
     @video = Video.new
   end
 
-  #new video page
-  def new
-    @video = Video.new
-  end
-
-  def new_new
-    @video = Video.new
-  end
   #create a video
   #use a session and a delete key to allow the user to edit the video if they are not signed in
   #attach the video to their user account if they are signed in
-  def create
-    @video = Video.new()                                   #get the attachemnt and create a video object with it
+  def create 
+    @video = Video.new()                                                                     #get the attachemnt and create a video object with it
 
-    if @video.save                                                                                #if it saves then get the urll
-      @video.create_url  params[:filepath]                                              
+    if @video.save                                                                                   #if it saves then get the urll
+      @video.create_url  params[:filepath]                                           
 
-      if signed_in?                                                                                 #if the user is signed in add the video to their account
+      if signed_in?                                                                                    #if the user is signed in add the video to their account
         current_user.videos << @video 
 
-      else                                                                                                #if they arent't uses sessions and a delete key
+      else                                                                                                   #if they arent't uses sessions and a delete key
         @video.session_id = SecureRandom.urlsafe_base64(15) 
         @video.delete_key = SecureRandom.urlsafe_base64(30) 
         session[:owned_videos] ||= []                                                    #if the current session doesn't have any owned_videos then create the array
@@ -34,13 +27,13 @@ class VideosController < ApplicationController
       end
 
       @video.save 
+      send_to_heywatch @video
       render json:  {url: "/videos/#{@video.id}"}
-    else                                                              #error saving the video take them back to try again TODO show errors
+    else                                                                                     #error saving the video take them back to try again TODO show errors
       redirect_to "/"
       
     end
   end
-
   #display the video
   #set the owner_type to one of 3 options
   #owner             -  the user is signed in and owns the video
@@ -48,7 +41,9 @@ class VideosController < ApplicationController
   #not owner      - the user doesn't own the video
   def show
     @video = Video.find(params[:id])
+    @video.views += 1
 
+    @video.save
     if owner? @video.user_id                                                        #for logged in owners of the video
       @owner_type = "owner" 
     elsif not_signed_in_owner? @video                                        #for non logged in owners of the video
@@ -100,10 +95,18 @@ class VideosController < ApplicationController
 
   private
 
-  def video_attachment
-    params.permit(:filepath)
+  # def video_attachment
+  #   params.permit(:filepath)
+  # end
+  def send_to_heywatch video
+    hw = HeyWatch.new
+    debug_print
+    puts hw.create :download, {
+      :url => video.url, title: ((video.name || "untitled") + video.id.to_s + SecureRandom.urlsafe_base64(3)),
+      :ping_url => "easyvid.com/hw/uploaded/#{video.id}"
+    }
+    binding.pry
   end
-
   def video_title
     params.require(:video).permit(:name)
   end

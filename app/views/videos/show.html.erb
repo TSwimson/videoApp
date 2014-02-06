@@ -1,47 +1,99 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-8 col-xs-12 col-md-offset-1"><div class="title-contatiner">
     <%if @owner_type == "owner" || @owner_type == "not signed in"%>
-    <div class="title-div">
-    <h1><%=@video.name || "Click to set title"%></h1><button class="btn btn-default btn-sm edit-title-button"><span class="glyphicon glyphicon-pencil"></span></button>
-</div>
-    <div class="edit-title-form">
-        <button class="btn btn-default btn-sm cancel-edit-button"><span class="glyphicon glyphicon-remove"></span></button>
-    <h1><%=form_for @video, role: "form" do |f|%>
-    	<%=f.text_field :name%>
-    	<%=f.submit "Set Title"%>
-    	<%end%></h1>
-        
-    </div>
-</div>
-    <%elsif @owner_type == "not owner"%>
-    <h1><%=@video.name%></h1>
-    <%end%>
-  </div>
-  <video preload controls id="videoid" class="video-js vjs-default-skin"
-    controls preload="auto" width="620" height="480">
-   <source src="<%=@video.url%>" type='video/mp4' />
-  </video>
+        <div class="title-div">
+            <h1><%=@video.name || "Title"%> <button class="btn btn-default btn-sm edit-title-button"><span class="glyphicon glyphicon-pencil"></span></button></h1>
+        </div>
+        <div class="edit-title-form buffer">
+            <button class="btn btn-default btn-sm cancel-edit-button"><span class="glyphicon glyphicon-remove"></span></button>
+            <%=form_for @video, role: "form",  class: "form" do |f|%>
+    	   <%=f.text_field :name, class: "form-input inline"%>
+    	   <%=f.submit "Set Title", class: "btn btn-default inline "%>
+    	   <%end%>
+        </div>
 
+    <%elsif @owner_type == "not owner"%>
+        <h1><%=@video.name%></h1>
+    <%end%></div>
+    <% if @video.processed == "processed" %>
+    <video preload controls id="videoid" class="video-js vjs-default-skin" controls preload="auto" >
+        <source src="<%=@video.url%>" type='video/mp4' />
+    </video>
+    <%elsif @video.processed == "processing"%>
+        <div class="inline-block-sm border">
+            Your video is currently being processed
+        </div>
+    <%else%>
+        <div class="inline-block-sm border">
+            Your video could not be processed
+        </div>
+    <%end%>
+</div>
+<div class="col-xs-10 col-md-3"><div class="links-area">
+    <div class="inline-block-sm border">
+        <p>Link to this page</p>
+            <input type="text" class="link-text"readonly=true id="video-link" value="easyvid.com<%=video_path(@video.id) %>"/>
+            <button class='my_clip_button' data-clipboard-text="<%="easyvid.com" + video_path(@video.id)%>" id='d_clip_button' title='Click me to copy to clipboard.'>
+            <span class="glyphicon glyphicon-paperclip"></span>
+        </button>
+    </div>
+    <div class="inline-block-sm border">
+        Views: <strong><%=@video.views%></strong>
+    </div>
   <%if @owner_type == "owner"%>
-  <p>This video is saved to your account<p>
-  <%= button_to "Delete",  @video, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{@video.name}?" %>
+  <div class="inline-block-sm border">
+    <p><p>
+    <%= button_to "Delete",  @video, method: :delete, class: "btn btn-danger delete-button", confirm: "Are you sure that you wish to delete #{@video.name}?" %>
+</div>
   <%elsif @owner_type == "not signed in"%>
-  <p>Login to save this video to your account</p>
-  <p>Or save this link if you might want to delete it.<br/>This link will not be shown again. 
-  	<a href="<%=delete_video_page_path(@video.id, @video.delete_key)%>"><%="http://easyvid.herokuapp.com" + delete_video_page_path(@video.id, @video.delete_key)%></a><p>
-  <%end%>
+  <div class="inline-block-sm border">
+    <p>Login to save this video on your account to allow future editing or deleting.</p>
+    <p>Save this link if you might want to delete it.<br/>This link will not be shown again. 
+        <input type="text" class="link-text" readonly=true id="video-link" value="easyvid.com<%=delete_video_page_path(@video.id, @video.delete_key)%>"/>
+            <button class='my_clip_button2' data-clipboard-text="easyvid.com<%=delete_video_page_path(@video.id, @video.delete_key)%>" id='d_clip_button' title='Click me to copy to clipboard.'>
+        <span class="glyphicon glyphicon-paperclip"></span>
+    </button>
+    </p>
 </div>
+<%end%>
+  </div>
 </div>
+</div></div>
 <script>
-$('document').ready(function(){
-    $('.edit-title-form').hide();
-  $(".edit-title-button").click(function() {
-    $('.edit-title-form').show();
-    $(".title-div").hide();
-});
-$(".cancel-edit-button").click(function() {
-    $('.edit-title-form').hide();
-    $(".title-div").show();
-});
-});
+    $('document').ready(function(){
+        var client = new ZeroClipboard( document.getElementById('d_clip_button') );
+        var client2 = new ZeroClipboard( document.getElementById('d_clip_button2') );
+        $('.edit-title-form').hide();
+      $(".edit-title-button").click(function() {
+        $('.edit-title-form').show();
+        $(".title-div").hide();
+    });
+    $(".cancel-edit-button").click(function() {
+        $('.edit-title-form').hide();
+        $(".title-div").show();
+    });
+    $("#video-link").click(function(){
+        this.select();
+    });
+    });
   </script>
+  <script type="text/javascript">
+  // Once the video is ready
+  _V_("videoid").ready(function(){
+
+    var myPlayer = this;    // Store the video object
+    var aspectRatio = 9/16; // Make up an aspect ratio
+
+    function resizeVideoJS(){
+      // Get the parent element's actual width
+      var width = document.getElementById(myPlayer.id()).parentElement.offsetWidth;
+      width *= .9;
+      // Set width to fill parent element, Set height
+      myPlayer.width(width).height( width * aspectRatio );
+    }
+
+    resizeVideoJS(); // Initialize the function
+    window.onresize = resizeVideoJS; // Call the function on resize
+  });
+</script>

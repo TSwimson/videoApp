@@ -48,8 +48,10 @@ end
 # Use ActiveModel has_secure_password
 #gem 'jquery-fileupload-rails'
 #gem 'jquery-fileupload-rails', '= 0.4.1', :path => 'vendor/gems/jquery-fileupload-rails/'
+gem 'zeroclipboard-rails'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'fog'
+gem 'font-awesome-sass'
 #gem 'carrierwave'
 gem 's3_direct_upload'
 gem 'heywatch'

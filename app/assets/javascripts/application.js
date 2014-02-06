@@ -14,10 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-// require jquery-fileupload
-// require jquery-fileupload/basic
-// require jquery-fileupload/vendor/tmpl
 //= require s3_direct_upload
+//= require zeroclipboard
 
 $(function() {
   $('#s3_uploader').S3Uploader({

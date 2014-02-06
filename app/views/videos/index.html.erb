@@ -27,8 +27,7 @@
     <div class="row">
       <div class="col-xs-2"></div>
       <div class="video-div col-xs-9">
-        <%= video.name %>
-        <%= link_to "Video Page", video_path(video.id) %>
+        <%= link_to (video.name || "Untitled"), video_path(video.id) %>
       </div></div>
     <% end %>
 </div>
