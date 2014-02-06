@@ -1,6 +1,8 @@
 class MyHeywatchController < ApplicationController
 skip_before_filter :verify_authenticity_token
+respond_to :json
   def upload_complete
+    params.require(:params).permit(:video_id)
     puts "upload_complete params below"
     puts JSON.parse(request)
     #puts params
