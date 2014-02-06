@@ -8,7 +8,7 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-
+gem 'font-awesome-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -56,7 +56,7 @@ end
 gem 'zeroclipboard-rails'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'fog'
-gem 'font-awesome-sass'
+
 #gem 'carrierwave'
 gem 's3_direct_upload'
 gem 'heywatch'

@@ -16,7 +16,7 @@
               <%= form_for(:session, url: sessions_path, class: 'navbar-form', role: 'login') do |f| %>
                   <%= f.text_field :email, placeholder: "Email" %>
                   <%= f.password_field :password, placeholder: "Password" %>
-                  <button type="submit"><i class="fa fa-sign-in"></i></input>
+                  <button type="submit"><%= fa_icon "sign-in" %></input>
                 <% end %></div>
               </div>
             <% end %>
