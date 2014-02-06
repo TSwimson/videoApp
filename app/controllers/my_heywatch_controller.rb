@@ -4,7 +4,7 @@ respond_to :json
   def upload_complete
     params.require(:params).permit(:video_id)
     puts "upload_complete params below"
-    puts JSON.parse(request)
+    puts JSON.parse(request.body)
     #puts params
 
      #puts "request body"
