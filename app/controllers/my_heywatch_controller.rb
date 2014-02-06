@@ -6,7 +6,7 @@ class MyHeywatchController < ApplicationController
     puts "upload_complete params below"
     puts params
     #binding.pry
-     encode params[:id], params['video_id']
+     encode params[:id], params['params']['video_id']
   end
 
   def encode id, video_id
@@ -25,6 +25,7 @@ class MyHeywatchController < ApplicationController
     puts "e"*70
     puts "encode_complete params below"
     puts params
+    #binding.pry
     video = Video.find(params[:id])
     video.url = params[:output_url]
     video.processed = "processed"
