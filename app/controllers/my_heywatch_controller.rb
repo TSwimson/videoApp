@@ -5,7 +5,7 @@ class MyHeywatchController < ApplicationController
     puts "u"*70
     puts "upload_complete params below"
     puts params
-    binfing.pry
+    #binding.pry
      encode params[:id], params['id']
   end
 
@@ -17,7 +17,7 @@ class MyHeywatchController < ApplicationController
       :output_url => "s3://#{ENV['AMAZON_ID']}:#{ENV['AMAZON_KEY']}@videosok/converted/abcd.mp4", 
       ping_url: "easyvid.com/hw/encoded/#{id}"
     }
-    binding.pry
+    #binding.pry
   end
 
   def encode_complete
