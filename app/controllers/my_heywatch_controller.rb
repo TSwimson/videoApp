@@ -6,7 +6,7 @@ class MyHeywatchController < ApplicationController
     puts "upload_complete params below"
     puts params
     #binding.pry
-     encode params[:id], params['id']
+     encode params[:id], params['video_id']
   end
 
   def encode id, video_id
@@ -15,7 +15,7 @@ class MyHeywatchController < ApplicationController
       :video_id =>  video_id, 
       format_id: "mp4_480p", 
       :output_url => "s3://#{ENV['AMAZON_ID']}:#{ENV['AMAZON_KEY']}@videosok/converted/abcd.mp4", 
-      ping_url: "easyvid.com/hw/encoded/#{id}"
+      ping_url: "easyvid.heroku.com/hw/encoded/#{id}"
     }
     #binding.pry
   end
@@ -26,7 +26,7 @@ class MyHeywatchController < ApplicationController
     puts "encode_complete params below"
     puts params
     video = Video.find(params[:id])
-    video.url = params[:response]
+    video.url = params[:output_url]
     video.processed = "processed"
     video.save
     #redirect user with gone
