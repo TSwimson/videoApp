@@ -2,6 +2,7 @@ class VideosController < ApplicationController
 
   #list all videos title and page link
   def index
+    binding.pry
     @videos = current_user.videos if signed_in?
     @videos ||= []
     @video = Video.new
