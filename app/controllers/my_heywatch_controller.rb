@@ -1,5 +1,5 @@
 class MyHeywatchController < ApplicationController
-
+skip_before_filter :verify_authenticity_token
   def upload_complete
     debug_print
     puts "u"*70
