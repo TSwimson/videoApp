@@ -15,11 +15,11 @@ VideoApp::Application.routes.draw do
 
   get '/new', to: 'videos#new_new'
 
-  post '/hw/uploaded/:id', to: 'videos#index'
-  post '/hw/encoded/:id', to: 'videos#index'
+get '/hw/uploaded/:id', to: 'videos#index'
+  get '/hw/encoded/:id', to: 'videos#index'
 
-  get '/hw/uploaded/:id', to: 'my_heywatch#upload_complete'
-  get '/hw/encoded/:id', to: 'my_heywatch#encode_complete'
+  post '/hw/uploaded/:id', to: 'my_heywatch#upload_complete'
+  post '/hw/encoded/:id', to: 'my_heywatch#encode_complete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

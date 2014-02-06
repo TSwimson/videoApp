@@ -5,6 +5,9 @@ skip_before_filter :verify_authenticity_token
     puts params
     #binding.pry
      encode params[:id], params['video_id']
+
+     puts "request body"
+     puts request.body.read
   end
 
   def encode id, video_id
@@ -19,10 +22,10 @@ skip_before_filter :verify_authenticity_token
   end
 
   def encode_complete
-    debug_print
-    puts "e"*70
     puts "encode_complete params below"
     puts params
+    puts "request body"
+     puts request.body.read
     #binding.pry
     video = Video.find(params[:id])
     video.url = params[:output_url]
