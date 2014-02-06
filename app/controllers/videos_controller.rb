@@ -100,7 +100,7 @@ class VideosController < ApplicationController
   # end
   def send_to_heywatch video
     hw = HeyWatch.new
-    debug_print
+    puts "sending to hey watch"
     puts hw.create :download, {
       :url => video.url, title: ((video.name || "untitled") + video.id.to_s + SecureRandom.urlsafe_base64(3)),
       :ping_url => "http://easyvid.heroku.com/hw/uploaded/#{video.id}"
