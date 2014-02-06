@@ -103,7 +103,7 @@ class VideosController < ApplicationController
     debug_print
     puts hw.create :download, {
       :url => video.url, title: ((video.name || "untitled") + video.id.to_s + SecureRandom.urlsafe_base64(3)),
-      :ping_url => "easyvid.heroku.com/hw/uploaded/#{video.id}"
+      :ping_url => "http://easyvid.heroku.com/hw/uploaded/#{video.id}"
     }
     #binding.pry
   end

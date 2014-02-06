@@ -15,7 +15,7 @@ class MyHeywatchController < ApplicationController
       :video_id =>  video_id, 
       format_id: "mp4_480p", 
       :output_url => "s3://#{ENV['AMAZON_ID']}:#{ENV['AMAZON_KEY']}@videosok/converted/abcd.mp4", 
-      ping_url: "easyvid.heroku.com/hw/encoded/#{id}"
+      ping_url: "http://easyvid.heroku.com/hw/encoded/#{id}"
     }
     #binding.pry
   end
