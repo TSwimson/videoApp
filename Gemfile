@@ -46,9 +46,9 @@ group :produduction do
   gem 'pry-remote'
   gem 'rails_12factor'
   gem 'pry'
-      gem 'pry-byebug'
-      gem 'pry-rails'
-      gem 'awesome_print'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'awesome_print'
 end
 # Use ActiveModel has_secure_password
 #gem 'jquery-fileupload-rails'
