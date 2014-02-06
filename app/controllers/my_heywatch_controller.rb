@@ -7,6 +7,7 @@ skip_before_filter :verify_authenticity_token
 
      puts "request body"
      puts request.body.read
+     render json: {}
      #encode params[:id], params['video_id']
   end
 
