@@ -4,10 +4,10 @@ skip_before_filter :verify_authenticity_token
     puts "upload_complete params below"
     puts params
     #binding.pry
-     encode params[:id], params['video_id']
 
      puts "request body"
      puts request.body.read
+     #encode params[:id], params['video_id']
   end
 
   def encode id, video_id
