@@ -26,7 +26,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
+gem 'gon'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -43,12 +43,7 @@ group :development do
 end
 
 group :produduction do 
-  #gem 'pry-remote'
   gem 'rails_12factor'
-  gem 'pry'
-  #gem 'pry-byebug'
-  gem 'pry-rails'
-  gem 'awesome_print'
 end
 # Use ActiveModel has_secure_password
 #gem 'jquery-fileupload-rails'
