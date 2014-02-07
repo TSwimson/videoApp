@@ -3,10 +3,10 @@
     <div class="col-md-8 col-xs-12 col-md-offset-1"><div class="title-contatiner">
     <%if @owner_type == "owner" || @owner_type == "not signed in"%>
         <div class="title-div">
-            <h1><%=@video.name || "Title"%> <button class="btn btn-default btn-sm edit-title-button"><span class="glyphicon glyphicon-pencil"></span></button></h1>
+            <h1><%=@video.name || "Title"%> <button class="btn btn-default btn-sm edit-title-button">E</button></h1>
         </div>
         <div class="edit-title-form buffer">
-            <button class="btn btn-default btn-sm cancel-edit-button"><span class="glyphicon glyphicon-remove"></span></button>
+            <button class="btn btn-default btn-sm cancel-edit-button">X</span></button>
             <%=form_for @video, role: "form",  class: "form" do |f|%>
     	   <%=f.text_field :name, class: "form-input inline"%>
     	   <%=f.submit "Set Title", class: "btn btn-default inline "%>

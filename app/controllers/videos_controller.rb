@@ -41,6 +41,7 @@ class VideosController < ApplicationController
   #not owner      - the user doesn't own the video
   def show
     @video = Video.find(params[:id])
+    @video.views ||= 0
     @video.views += 1
 
     @video.save
