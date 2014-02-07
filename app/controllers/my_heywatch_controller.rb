@@ -9,7 +9,7 @@ respond_to :json
   def encode id, video_id
     hw = HeyWatch.new
     video = Video.find(id)
-     hw.create :job, {
+    hw.create :job, {
       :video_id =>  video_id, 
       format_id: "mp4_480p", 
       :output_url => "s3://#{ENV['AMAZON_ID']}:#{ENV['AMAZON_KEY']}@videosok/converted/#{video.attachment}", 
