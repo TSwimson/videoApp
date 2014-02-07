@@ -35,3 +35,111 @@
 [02/06/14 17:57:10 -0800 Tanners-MacBook-Pro.local (13387)] INFO : Installing Rails4 Error instrumentation
 [02/06/14 17:57:10 -0800 Tanners-MacBook-Pro.local (13387)] INFO : Finished instrumentation
 [02/06/14 17:57:10 -0800 Tanners-MacBook-Pro.local (13387)] INFO : Doing deferred dependency-detection before Rack startup
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Starting the New Relic agent in "development" environment.
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Reading configuration from config/newrelic.yml
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : New Relic Agent Developer Mode enabled.
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Enabling the Request Sampler.
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Environment: development
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Dispatcher: webrick
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Application: My Application
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] WARN : Agent configured not to send data in this environment.
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Installing ActiveRecord 4 instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Installing middleware-based Excon instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Installing Net instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Installing deferred Rack instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Installing Rails 4 Controller instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Installing Rails 4 view instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Installing Rails4 Error instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Finished instrumentation
+[02/06/14 18:17:13 -0800 Tanners-MacBook-Pro.local (13969)] INFO : Doing deferred dependency-detection before Rack startup
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Starting the New Relic agent in "development" environment.
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Reading configuration from config/newrelic.yml
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : New Relic Agent Developer Mode enabled.
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Enabling the Request Sampler.
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Environment: development
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Dispatcher: webrick
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Application: My Application
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] WARN : Agent configured not to send data in this environment.
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Installing ActiveRecord 4 instrumentation
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Installing middleware-based Excon instrumentation
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Installing Net instrumentation
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Installing deferred Rack instrumentation
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Installing Rails 4 Controller instrumentation
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Installing Rails 4 view instrumentation
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Installing Rails4 Error instrumentation
+[02/06/14 18:56:44 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Finished instrumentation
+[02/06/14 18:56:45 -0800 Tanners-MacBook-Pro.local (14225)] INFO : Doing deferred dependency-detection before Rack startup
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Starting the New Relic agent in "development" environment.
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Reading configuration from config/newrelic.yml
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : New Relic Agent Developer Mode enabled.
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Enabling the Request Sampler.
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Environment: development
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Dispatcher: webrick
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Application: My Application
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] WARN : Agent configured not to send data in this environment.
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Installing ActiveRecord 4 instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Installing middleware-based Excon instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Installing Net instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Installing deferred Rack instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Installing Rails 4 Controller instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Installing Rails 4 view instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Installing Rails4 Error instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Finished instrumentation
+[02/07/14 09:25:40 -0800 Tanners-MacBook-Pro.local (14799)] INFO : Doing deferred dependency-detection before Rack startup
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Starting the New Relic agent in "development" environment.
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Reading configuration from config/newrelic.yml
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : New Relic Agent Developer Mode enabled.
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Enabling the Request Sampler.
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Environment: development
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Dispatcher: webrick
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Application: My Application
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] WARN : Agent configured not to send data in this environment.
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Installing ActiveRecord 4 instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Installing middleware-based Excon instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Installing Net instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Installing deferred Rack instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Installing Rails 4 Controller instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Installing Rails 4 view instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Installing Rails4 Error instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Finished instrumentation
+[02/07/14 09:25:50 -0800 Tanners-MacBook-Pro.local (14831)] INFO : Doing deferred dependency-detection before Rack startup
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Starting the New Relic agent in "development" environment.
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Reading configuration from config/newrelic.yml
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : New Relic Agent Developer Mode enabled.
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Enabling the Request Sampler.
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Environment: development
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Dispatcher: webrick
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Application: My Application
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] WARN : Agent configured not to send data in this environment.
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Installing ActiveRecord 4 instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Installing middleware-based Excon instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Installing Net instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Installing deferred Rack instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Installing Rails 4 Controller instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Installing Rails 4 view instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Installing Rails4 Error instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Finished instrumentation
+[02/07/14 09:37:56 -0800 Tanners-MacBook-Pro.local (15094)] INFO : Doing deferred dependency-detection before Rack startup
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Starting the New Relic agent in "development" environment.
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Reading configuration from config/newrelic.yml
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : New Relic Agent Developer Mode enabled.
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Enabling the Request Sampler.
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Environment: development
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Dispatcher: webrick
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Application: My Application
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] WARN : Agent configured not to send data in this environment.
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Installing ActiveRecord 4 instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Installing middleware-based Excon instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Installing Net instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Installing deferred Rack instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Installing Rails 4 Controller instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Installing Rails 4 view instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Installing Rails4 Error instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Finished instrumentation
+[02/07/14 09:46:38 -0800 Tanners-MacBook-Pro.local (15177)] INFO : Doing deferred dependency-detection before Rack startup

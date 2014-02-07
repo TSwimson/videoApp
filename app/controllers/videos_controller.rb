@@ -107,8 +107,8 @@ class VideosController < ApplicationController
     hw.create :download, {
       :url => video.url, 
       title: title,
-      #:ping_url => "http://web1.tunnlr.com:13011/hw/uploaded/#{video.id}" #local
-      :ping_url => "http://easyvid.heroku.com/hw/uploaded/#{video.id}" #web
+      :ping_url => "http://web1.tunnlr.com:13011/hw/uploaded/#{video.id}" #local
+      #:ping_url => "http://easyvid.heroku.com/hw/uploaded/#{video.id}" #web
     }
     #binding.pry
   end

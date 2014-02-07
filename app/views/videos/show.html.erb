@@ -3,10 +3,10 @@
     <div class="col-md-8 col-xs-12 col-md-offset-1"><div class="title-contatiner">
     <%if @owner_type == "owner" || @owner_type == "not signed in"%>
         <div class="title-div">
-            <h1><%=@video.name || "Title"%> <button class="btn btn-default btn-sm edit-title-button">E</button></h1>
+            <h1><%=@video.name || "Title"%> <button class="btn btn-default btn-sm edit-title-button"><%= fa_icon "pencil"%></button></h1>
         </div>
         <div class="edit-title-form buffer">
-            <button class="btn btn-default btn-sm cancel-edit-button">X</span></button>
+            <button class="btn btn-default btn-sm cancel-edit-button"><%= fa_icon "times"%></button>
             <%=form_for @video, role: "form",  class: "form" do |f|%>
     	   <%=f.text_field :name, class: "form-input inline"%>
     	   <%=f.submit "Set Title", class: "btn btn-default inline "%>
@@ -33,9 +33,9 @@
 <div class="col-xs-10 col-md-3"><div class="links-area">
     <div class="inline-block-sm border">
         <p>Link to this page</p>
-            <input type="text" class="link-text"readonly=true id="video-link" value="easyvid.com<%=video_path(@video.id) %>"/>
-            <button class='my_clip_button' data-clipboard-text="<%="easyvid.com" + video_path(@video.id)%>" id='d_clip_button' title='Click me to copy to clipboard.'>
-            <span class="glyphicon glyphicon-paperclip"></span>
+            <input type="text" class="link-text"readonly=true id="video-link" value="easyvid.heroku.com<%=video_path(@video.id) %>"/>
+            <button class='my_clip_button' data-clipboard-text="<%="easyvid.heroku.com" + video_path(@video.id)%>" id='d_clip_button' title='Click me to copy to clipboard.'>
+            <%= fa_icon "clipboard"%>
         </button>
     </div>
     <div class="inline-block-sm border">
@@ -50,9 +50,9 @@
   <div class="inline-block-sm border">
     <p>Login to save this video on your account to allow future editing or deleting.</p>
     <p>Save this link if you might want to delete it.<br/>This link will not be shown again. 
-        <input type="text" class="link-text" readonly=true id="video-link" value="easyvid.com<%=delete_video_page_path(@video.id, @video.delete_key)%>"/>
-            <button class='my_clip_button2' data-clipboard-text="easyvid.com<%=delete_video_page_path(@video.id, @video.delete_key)%>" id='d_clip_button' title='Click me to copy to clipboard.'>
-        <span class="glyphicon glyphicon-paperclip"></span>
+        <input type="text" class="link-text" readonly=true id="video-link" value="easyvid.heroku.com<%=delete_video_page_path(@video.id, @video.delete_key)%>"/>
+            <button class='my_clip_button2' data-clipboard-text="easyvid.heroku.com<%=delete_video_page_path(@video.id, @video.delete_key)%>" id='d_clip_button2' title='Click me to copy to clipboard.'>
+        <%= fa_icon "clipboard"%>
     </button>
     </p>
 </div>
