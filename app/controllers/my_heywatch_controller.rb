@@ -13,7 +13,8 @@ respond_to :json
       :video_id =>  video_id, 
       format_id: "mp4_480p", 
       :output_url => "s3://#{ENV['AMAZON_ID']}:#{ENV['AMAZON_KEY']}@videosok/converted/#{video.attachment}", 
-      ping_url: "http://web1.tunnlr.com:13011/hw/encoded/#{id}"
+      #ping_url: "http://web1.tunnlr.com:13011/hw/encoded/#{id}" # local
+      ping_url: "http://easyvid.heroku.com/hw/encoded/#{id}" #web
     }
   end
 
