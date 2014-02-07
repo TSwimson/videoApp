@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require s3_direct_upload_progress_bars
- *= require font-awesome
  *= require_tree .
 */
 
