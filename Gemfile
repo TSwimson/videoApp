@@ -34,7 +34,6 @@ group :doc do
 end
 group :development do 
       gem 'better_errors'
-      #gem 'binding_of_caller'
       gem 'meta_request'
 	gem 'pry'
       gem 'pry-byebug'
@@ -56,6 +55,7 @@ gem 'fog'
 #gem 'carrierwave'
 gem 's3_direct_upload'
 gem 'heywatch'
+ruby "2.1.0"
 #gem 'videojs_rails'
 
 # Use unicorn as the app server
