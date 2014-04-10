@@ -14,7 +14,7 @@ class VideosController < ApplicationController
     @video = Video.new()                                                                     #get the attachemnt and create a video object with it
 
     if @video.save                                                                                   #if it saves then get the urll
-      @video.create_url  params[:filepath]                                           
+      @video.create_url(params[:filepath])                                         
 
       if signed_in?                                                                                    #if the user is signed in add the video to their account
         current_user.videos << @video 
@@ -96,9 +96,6 @@ class VideosController < ApplicationController
 
   private
 
-  # def video_attachment
-  #   params.permit(:filepath)
-  # end
   def send_to_heywatch video
     hw = HeyWatch.new
     title = ((video.name || "untitled") + video.id.to_s + SecureRandom.urlsafe_base64(3))
@@ -110,7 +107,6 @@ class VideosController < ApplicationController
       :ping_url => "http://web1.tunnlr.com:13011/hw/uploaded/#{video.id}" #local
       #:ping_url => "http://easyvid.heroku.com/hw/uploaded/#{video.id}" #web
     }
-    #binding.pry
   end
   def video_title
     params.require(:video).permit(:name)
