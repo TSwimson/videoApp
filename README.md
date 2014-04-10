@@ -7,4 +7,7 @@ After choosing a file either by click the button or dragging from your computer 
 </p><p><img alt="Uploading" src="http://i.imgur.com/xLprJ1o.png" width='200px' /></p><p>
 You are then taken to a page while you wait for your video to be encoded via the Heywatch API.</p><p>
 <img alt="Video Being Processed" src="http://i.imgur.com/7HJqVAf.png" width='200px' /></p>
-When your'e video is finished being processed it will be displayed on this page.
+When your video is finished being processed it will be displayed on this page.
+
+
+This project is part of the public domain feel free to do anything with any of the code.
